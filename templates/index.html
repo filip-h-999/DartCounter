@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dart Counter</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="scoreboard">
+            <div class="player-score">
+                <span>Player One:</span>
+                <div class="score" id="score1">501</div>
+            </div>
+            <img src="static/img/d.png" alt="Dartboard" class="dartboard">
+            <div class="player-score">
+                <span>Player Two:</span>
+                <div class="score" id="score2">501</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="row">
+                <button onclick="subtractPoints(1)">1</button>
+                <button onclick="subtractPoints(2)">2</button>
+                <button onclick="subtractPoints(3)">3</button>
+                <button onclick="subtractPoints(4)">4</button>
+                <button onclick="subtractPoints(5)">5</button>
+                <button onclick="subtractPoints(6)">6</button>
+                <button onclick="subtractPoints(7)">7</button>
+                <button onclick="subtractPoints(8)">8</button>
+                <button onclick="subtractPoints(9)">9</button>
+                <button onclick="subtractPoints(10)">10</button>
+                <button onclick="subtractPoints(11)">11</button>
+                <button onclick="subtractPoints(12)">12</button>
+                <button onclick="subtractPoints(13)">13</button>
+                <button onclick="subtractPoints(14)">14</button>
+                <button onclick="subtractPoints(15)">15</button>
+                <button onclick="subtractPoints(16)">16</button>
+                <button onclick="subtractPoints(17)">17</button>
+                <button onclick="subtractPoints(18)">18</button>
+                <button onclick="subtractPoints(19)">19</button>
+                <button onclick="subtractPoints(20)">20</button>
+                <button onclick="subtractPoints(25)">25</button>
+                <button onclick="subtractPoints(50)">50</button>
+            </div>
+            <div class="row">
+                <button class="double" onclick="subtractPoints(2)">D1</button>
+                <button class="double" onclick="subtractPoints(4)">D2</button>
+                <button class="double" onclick="subtractPoints(6)">D3</button>
+                <button class="double" onclick="subtractPoints(8)">D4</button>
+                <button class="double" onclick="subtractPoints(10)">D5</button>
+                <button class="double" onclick="subtractPoints(12)">D6</button>
+                <button class="double" onclick="subtractPoints(14)">D7</button>
+                <button class="double" onclick="subtractPoints(16)">D8</button>
+                <button class="double" onclick="subtractPoints(18)">D9</button>
+                <button class="double" onclick="subtractPoints(20)">D10</button>
+                <button class="double" onclick="subtractPoints(22)">D11</button>
+                <button class="double" onclick="subtractPoints(24)">D12</button>
+                <button class="double" onclick="subtractPoints(26)">D13</button>
+                <button class="double" onclick="subtractPoints(28)">D14</button>
+                <button class="double" onclick="subtractPoints(30)">D15</button>
+                <button class="double" onclick="subtractPoints(32)">D16</button>
+                <button class="double" onclick="subtractPoints(34)">D17</button>
+                <button class="double" onclick="subtractPoints(36)">D18</button>
+                <button class="double" onclick="subtractPoints(38)">D19</button>
+                <button class="double" onclick="subtractPoints(40)">D20</button>
+            </div>
+            <div class="row">
+                <button class="triple" onclick="subtractPoints(3)">T1</button>
+                <button class="triple" onclick="subtractPoints(6)">T2</button>
+                <button class="triple" onclick="subtractPoints(9)">T3</button>
+                <button class="triple" onclick="subtractPoints(12)">T4</button>
+                <button class="triple" onclick="subtractPoints(15)">T5</button>
+                <button class="triple" onclick="subtractPoints(18)">T6</button>
+                <button class="triple" onclick="subtractPoints(21)">T7</button>
+                <button class="triple" onclick="subtractPoints(24)">T8</button>
+                <button class="triple" onclick="subtractPoints(27)">T9</button>
+                <button class="triple" onclick="subtractPoints(30)">T10</button>
+                <button class="triple" onclick="subtractPoints(33)">T11</button>
+                <button class="triple" onclick="subtractPoints(36)">T12</button>
+                <button class="triple" onclick="subtractPoints(39)">T13</button>
+                <button class="triple" onclick="subtractPoints(42)">T14</button>
+                <button class="triple" onclick="subtractPoints(45)">T15</button>
+                <button class="triple" onclick="subtractPoints(48)">T16</button>
+                <button class="triple" onclick="subtractPoints(51)">T17</button>
+                <button class="triple" onclick="subtractPoints(54)">T18</button>
+                <button class="triple" onclick="subtractPoints(57)">T19</button>
+                <button class="triple" onclick="subtractPoints(60)">T20</button>
+            </div>
+        </div>
+        <button id="backButton" onclick="undoLastAction()">Back</button>
+    </div>
+    <script src="static/main.js"></script>
+</body>
+</html>
