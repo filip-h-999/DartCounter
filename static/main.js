@@ -4,26 +4,48 @@ let currentPlayer = 1;
 let throwsLeft = 3;
 const history = [];
 
+const clickSound = new Audio('static/sound/click.mp3');
+
+// Function to play the sound
+function playSound(sound) {
+    const soundClone = sound.cloneNode();
+    soundClone.play();
+}
+
+// Add this function to main.js
+function updatePlayerUnderline() {
+    const playerOneName = document.getElementById('playerOneName');
+    const playerTwoName = document.getElementById('playerTwoName');
+
+    if (currentPlayer === 1) {
+        playerOneName.classList.add('underline');
+        playerTwoName.classList.remove('underline');
+    } else {
+        playerOneName.classList.remove('underline');
+        playerTwoName.classList.add('underline');
+    }
+}
+
+// Call updatePlayerUnderline in subtractPoints and nextPlayer functions
 function subtractPoints(points) {
-    const clickSound = new Audio('static/sound/click.mp3');
-    clickSound.play();
+    playSound(clickSound); // Use the playSound function
 
     if (currentPlayer === 1) {
         score1 = Math.max(score1 - points, 0);
         document.getElementById('score1').textContent = score1;
-        if (score1 === 0) {
-            alert('Player 1 wins!');
-            resetGame();
-            return;
-        }
+        // if (score1 === 0) {
+        //     alert('Player 1 wins!');
+        //     resetGame();
+        //     return;
+        // }
     } else {
         score2 = Math.max(score2 - points, 0);
         document.getElementById('score2').textContent = score2;
-        if (score2 === 0) {
-            alert('Player 2 wins!');
-            resetGame();
-            return;
-        }
+        // if (score2 === 0) {
+        //     alert('Player 2 wins!');
+        //     resetGame();
+        //     return;
+        // }
     }
 
     history.push({ points, player: currentPlayer });
@@ -32,6 +54,7 @@ function subtractPoints(points) {
     if (throwsLeft === 0) {
         currentPlayer = currentPlayer === 1 ? 2 : 1;
         throwsLeft = 3;
+        updatePlayerUnderline(); // Update underline when player changes
     }
 
     animateButton(points);
@@ -55,13 +78,22 @@ function undoLastAction() {
         currentPlayer = currentPlayer === 1 ? 2 : 1;
         throwsLeft = 1; // Set to 1 because we're undoing the action that initiated the turn
     } else {
-        // Otherwise, just increment throwsLeft as we're within the same player's turn
-        throwsLeft = (throwsLeft + 1) % 3;
+        throwsLeft++; // Increment throwsLeft to reflect the undone action
     }
 
-    // Correctly set currentPlayer to the one who performed the last action
-    currentPlayer = lastAction.player;
+    // Update the underline to reflect the current player
+    updatePlayerUnderline();
 }
+
+function nextPlayer() {
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
+    throwsLeft = 3;
+    playSound(clickSound); // Use the playSound function
+    updatePlayerUnderline(); // Update underline when player changes
+}
+
+// Call updatePlayerUnderline initially to set the correct underline
+updatePlayerUnderline();
 
 function animateButton(points) {
     const buttons = document.querySelectorAll('button');
