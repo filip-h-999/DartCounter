@@ -10,17 +10,18 @@
     <div class="container">
         <div class="scoreboard">
             <div class="player-score">
-                <span>Player One:</span>
+                <span id="playerOneName">Player One:</span>
                 <div class="score" id="score1">501</div>
             </div>
             <img src="static/img/d.png" alt="Dartboard" class="dartboard">
             <div class="player-score">
-                <span>Player Two:</span>
+                <span id="playerTwoName">Player Two:</span>
                 <div class="score" id="score2">501</div>
             </div>
         </div>
         <div class="buttons">
             <div class="row">
+                <button onclick="subtractPoints(0)">0</button>
                 <button onclick="subtractPoints(1)">1</button>
                 <button onclick="subtractPoints(2)">2</button>
                 <button onclick="subtractPoints(3)">3</button>
@@ -90,6 +91,7 @@
             </div>
         </div>
         <button id="backButton" onclick="undoLastAction()">Back</button>
+        <button id="nextButton" onclick="nextPlayer()">Next</button>
     </div>
     <script src="static/main.js"></script>
 </body>
