@@ -6,6 +6,20 @@ const history = [];
 
 const clickSound = new Audio('static/sound/click.mp3');
 
+// Prevent the user from accidentally reloading the page
+window.addEventListener('beforeunload', (event) => {
+    // Cancel the event as stated by the standard.
+    event.preventDefault();
+    // Chrome requires returnValue to be set.
+    event.returnValue = '';
+  });
+
+// Prevent the user from going back to the previous page
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+    history.go(1);
+};
+
 // Function to play the sound
 function playSound(sound) {
     const soundClone = sound.cloneNode();
@@ -115,6 +129,7 @@ function resetGame() {
     history.length = 0;
     document.getElementById('score1').textContent = score1;
     document.getElementById('score2').textContent = score2;
+    updatePlayerUnderline();
 }
 
 // Add event listener for button click to animate and play sound
